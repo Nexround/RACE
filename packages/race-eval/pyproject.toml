@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "race-eval"
+version = "0.1.0"
+description = "Evaluation, ablation, analysis, and serving tools for RACE"
+license = "MIT"
+authors = [{ name = "RACE Team" }]
+keywords = [
+    "machine learning",
+    "neural networks",
+    "interpretability",
+    "ablation",
+    "evaluation",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "race>=0.1.0",
+    "accelerate>=1.10.0",
+    "datasets>=4.0.0",
+    "evalscope>=1.5.2.post1",
+    "fastapi>=0.135.3",
+    "h5py>=3.7.0",
+    "huggingface-hub>=0.34.4",
+    "numpy>=1.21.0",
+    "pydantic>=2.12.5",
+    "scipy>=1.15.3",
+    "torch",
+    "tqdm>=4.64.0",
+    "transformers==4.57.6",
+    "uvicorn[standard]>=0.44.0",
+    "vllm==0.19.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/Nexround/RACE"
+Repository = "https://github.com/Nexround/RACE"
+Documentation = "https://github.com/Nexround/RACE/blob/main/docs/method.md"
+Issues = "https://github.com/Nexround/RACE/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["race_eval*"]
+
+[tool.setuptools.package-data]
+race_eval = ["py.typed"]

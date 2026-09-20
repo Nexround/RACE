@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Environments and local configuration
+.venv/
+.env
+.env.*
+.vscode/
+.idea/
+.claude/
+
+# Models, datasets, caches, and generated experiments
+models/
+datasets/
+cache/
+outputs/
+result/
+results/
+race_result/
+checkpoints/
+*.h5
+*.hdf5
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.log
+
+# Notebook checkpoints and local backups
+.ipynb_checkpoints/
+backup/
+.local_backups/

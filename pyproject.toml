@@ -1,0 +1,73 @@
+[project]
+name = "race-workspace"
+version = "0.1.0"
+description = "Workspace for the RACE core and RACE evaluation packages"
+requires-python = ">=3.10"
+dependencies = [
+  "race",
+  "race-eval",
+  "pytest>=7.0.0",
+  "black>=22.0.0",
+  "isort>=5.10.0",
+  "flake8>=4.0.0",
+  "mypy>=0.950",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["packages/race", "packages/race-eval"]
+
+[tool.uv.sources]
+race = { workspace = true }
+race-eval = { workspace = true }
+
+[tool.uv.extra-build-dependencies]
+flash-attn = [{ requirement = "torch", match-runtime = true }]
+
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["race", "race_eval"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+namespace_packages = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
