@@ -106,6 +106,11 @@ The LLM pipeline supports:
 See [LLM evidence strategies](docs/online_race_evidence_strategies.md) for the
 semantics and constraints of each mode.
 
+## Dataset
+
+The PyComp-1K dataset referenced in the paper is available on Hugging Face:
+[nexround/PyComp-1K](https://huggingface.co/datasets/nexround/PyComp-1K).
+
 ## License
 
 RACE is released under the [MIT License](LICENSE). Dataset and model licenses
